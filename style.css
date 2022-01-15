@@ -34,10 +34,15 @@ nav a {
     color: #3A3A3A;
 }
 
+nav a {
+    text-align: center;
+}
+
 /*! navbar start here  */
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -93,6 +98,8 @@ nav a i:hover {
 
 .checkBtn {
     display: none;
+    cursor: pointer;
+    font-size: 25px;
 }
 
 /*! navbar end here  */
@@ -151,7 +158,7 @@ section.sec1 .right .img-wrapper {
 }
 
 section.sec1 .right .img-wrapper img {
-    widows: 100%;
+    width: 100%;
     transition: transform .5s;
     cursor: pointer;
 }
@@ -284,7 +291,8 @@ section.sec3 .seeMoreBtn i {
 /* !section4 start here */
 section.sec4 {
     max-width: 1140px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;
     margin-top: 100px;
@@ -295,6 +303,7 @@ section.sec4 .left {
 }
 
 section.sec4 .left img {
+    border-radius: 10px;
     width: 100%;
 }
 
@@ -394,66 +403,42 @@ footer .icons a:hover {
 /* !footer end here  */
 
 
+/* !------------------ */
+/* responsive */
+/* !--------------------  */
 
+/* !for mobile  */
+@media (max-width: 319px) {
 
+    header,
+    nav,
+    section,
+    footer,
+    section.sec2,
+    section.sec4 {
+        display: none !important;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 900px) {
-    body {
-        background-color: lightblue;
     }
+}
 
-    ul {
+@media (min-width: 320px) and (max-width: 600px) {
+
+    /* !navbar start here  */
+    nav>ul {
 
         position: absolute;
         width: 100%;
-        background-color: aqua;
+        background-color: rgba(255, 255, 255, 0.87);
         flex-direction: column;
         display: flex;
-        padding: 100px;
-        top: 100px;
+        top: 40px;
         left: -1000px;
         transition: all .5s;
+        z-index: 100;
+    }
+
+    nav>ul>li {
+        margin: 10px;
     }
 
     .checkBtn {
@@ -462,5 +447,169 @@ footer .icons a:hover {
 
     #check:checked~ul {
         left: 0;
+    }
+
+    /* !navbar end here  */
+
+    /* !section1 start here  */
+    .container {
+        margin: 0 30px;
+    }
+
+    section.sec1 {
+        flex-direction: column;
+    }
+
+    section.sec1 .left {
+        justify-content: center;
+        align-items: center;
+    }
+
+    section.sec1 .left {
+        text-align: center;
+        order: 1;
+        margin-top: 70px;
+    }
+
+    /* !section1 end here  */
+
+    /* !section2 start here */
+    section.sec2 .image-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section.sec2 .image-wrapper a {
+        text-align: center;
+    }
+
+    /* !section2 end here */
+
+
+    /* !section3 start here */
+    section.sec3 .card-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+
+    /* !section3 end here */
+    /* !section4 start here */
+    section.sec4 {
+        grid-template-columns: repeat(1, 2fr);
+    }
+
+    section.sec4 .left {
+        max-width: 100%;
+    }
+
+    section.sec4 .right {
+        margin-top: 50px;
+        text-align: center;
+        order: 1;
+    }
+
+    /* !section4 end here */
+}
+
+
+/* !for tablet */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container {
+        margin: 0 50px;
+    }
+
+    /* !navbar start here  */
+
+    nav>ul {
+
+        position: absolute;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.87);
+        flex-direction: column;
+        display: flex;
+        top: 40px;
+        left: -1000px;
+        transition: all .5s;
+        z-index: 100;
+    }
+
+    nav>ul>li {
+        margin: 10px;
+    }
+
+    .checkBtn {
+        display: block;
+    }
+
+    #check:checked~ul {
+        left: 0;
+    }
+
+    /* !navbar end here  */
+    /* !section2 start here */
+    section.sec2 .image-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    section.sec2 .image-wrapper a {
+        text-align: center;
+    }
+
+    /* !section2 end here */
+    /* !section3 start here */
+    section.sec3 .card-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    /* !section3 end here */
+}
+
+
+
+/* *fixing bugs  */
+@media (max-width:979px) {
+
+    /* !section4 start here */
+    section.sec4 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+
+
+    /* !section4 end here */
+}
+
+@media (max-width:873px) {
+
+    /* !section1 start here  */
+
+    section.sec1 {
+        flex-direction: column;
+    }
+
+    section.sec1 .left {
+        justify-content: center;
+        align-items: center;
+    }
+
+    section.sec1 .left {
+        text-align: center;
+        order: 1;
+        margin-top: 70px;
+    }
+
+    /* !section1 end here  */
+}
+
+@media (min-width:1024px) and (max-width:1200px) {
+    .container {
+        margin: 0 30px;
     }
 }
